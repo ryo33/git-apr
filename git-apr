@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
 # [LICENSE] https://github.com/ryo33/git-apr/LICENSE
 
-hub am -3 "`git config --local --get remote.origin.url | sed -e s/.git$//`/pull/$1.patch"
+usage(){
+    cat << EOS
+usage: git apr <pull request number>
+EOS
+}
+
+if [ "$1" = "" ]; then
+    usage
+else
+    hub am -3 "`git config --local --get remote.origin.url | sed -e s/.git$//`/pull/$1.patch"
+fi
