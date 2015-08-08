@@ -10,5 +10,5 @@ EOS
 if [ "$1" = "" ]; then
     usage
 else
-    hub am -3 "`git config --local --get remote.origin.url | sed -e s/.git$//`/pull/$1.patch"
+    hub am -3 "`git config --local --get remote.origin.url | sed -e s/.git$//`/pull/`echo $1 | sed -e s/^#//`.patch"
 fi
