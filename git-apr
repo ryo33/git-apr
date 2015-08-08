@@ -7,7 +7,7 @@ usage: git apr <pull request number>
 EOS
 }
 
-if [ $# = 0 ]; then
+if [ $# = 0 ] ; then
     usage
 else
     hub am -3 "`git config --local --get remote.origin.url | sed -e s/.git$//`/pull/`echo $1 | sed -e s/^#//`.patch"
